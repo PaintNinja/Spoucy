@@ -1,0 +1,19 @@
+[
+{
+"modid": "Spoucy",
+"name": "Spoucy",
+"description": "Spoutcraft ported to Forge",
+"version": "v1",
+"credits": "Created by Paint_Ninja, Contributor name, Contributor name...",
+"logoFile": "logo.png",
+"mcversion": "",
+"url": "http://www.twitter.com/_Paint_Ninja_",
+"updateUrl": "",
+"authors": [ "Paint_Ninja" ],
+"parent":"",
+"screenshots": [],
+"dependencies": [
+"mod_MinecraftForge"
+]
+}
+]
