@@ -4,8 +4,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public final class SpoucyTabs extends CreativeTabs {
-	public SpoucyTabs(int par1, String par2Str)
+public final class SpoucyTabs2 extends CreativeTabs {
+	public SpoucyTabs2(int par1, String par2Str)
 	{
 		super(par1, par2Str);
 	}
@@ -20,6 +20,6 @@ return SpoucyCore.CustomStaticItem.itemID;
 //sets the title for the creative tab
 public String getTranslatedTabLabel()
 {
-return "Spoucy";
+return "Spoucy Other";
 }
 }
