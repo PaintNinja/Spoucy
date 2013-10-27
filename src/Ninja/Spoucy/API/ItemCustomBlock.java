@@ -255,6 +255,86 @@ public class ItemCustomBlock extends ItemBlock {
                         name = "Custom48";
                         break;
                  }
+                 case 48:
+                 {
+                        name = "Custom49";
+                        break;
+                 }
+                 case 49:
+                 {
+                        name = "Custom50";
+                        break;
+                 }
+                 case 50:
+                 {
+                        name = "Custom51";
+                        break;
+                 }
+                 case 51:
+                 {
+                        name = "Custom52";
+                        break;
+                 }
+                 case 52:
+                 {
+                        name = "Custom53";
+                        break;
+                 }
+                 case 53:
+                 {
+                        name = "Custom54";
+                        break;
+                 }
+                 case 54:
+                 {
+                        name = "Custom55";
+                        break;
+                 }
+                 case 55:
+                 {
+                        name = "Custom56";
+                        break;
+                 }
+                 case 56:
+                 {
+                        name = "Custom57";
+                        break;
+                 }
+                 case 57:
+                 {
+                        name = "Custom58";
+                        break;
+                 }
+                 case 58:
+                 {
+                        name = "Custom59";
+                        break;
+                 }
+                 case 59:
+                 {
+                        name = "Custom60";
+                        break;
+                 }
+                 case 60:
+                 {
+                        name = "Custom61";
+                        break;
+                 }
+                 case 61:
+                 {
+                        name = "Custom62";
+                        break;
+                 }
+                 case 62:
+                 {
+                        name = "Custom63";
+                        break;
+                 }
+                 case 63:
+                 {
+                        name = "Custom64";
+                        break;
+                 }
                  default: name = "broken";
           }
           return getUnlocalizedName() + "." + name;

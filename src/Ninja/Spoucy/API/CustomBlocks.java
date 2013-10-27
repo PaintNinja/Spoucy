@@ -31,7 +31,7 @@ public class CustomBlocks extends Block
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-	       icons = new Icon[48];
+	       icons = new Icon[64];
 	            
 	       for(int i = 0; i < icons.length; i++)
 	       {
@@ -48,7 +48,7 @@ public class CustomBlocks extends Block
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List)
 	{
-	    for (int var4 = 0; var4 < 48; ++var4)
+	    for (int var4 = 0; var4 < 64; ++var4)
 	    {
 	        par3List.add(new ItemStack(par1, 1, var4));
 	    }
