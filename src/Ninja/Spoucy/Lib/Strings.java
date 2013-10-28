@@ -5,4 +5,7 @@ public class Strings {
 	public static final String CUSTOMITEM_NAME = "CustomItem";
 	public static final String CUSTOMSTATICBLOCK_NAME = "CustomStaticBlock";
 	public static final String CUSTOMSTATICITEM_NAME = "CustomStaticItem";
+	
+	public static final String CUSTOMSTONEBLOCK_NAME = "CustomStoneBlock";
+	public static final String CUSTOMCARPET_NAME = "CustomCarpet";
 }
