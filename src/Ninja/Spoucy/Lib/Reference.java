@@ -1,5 +1,7 @@
 package Ninja.Spoucy.Lib;
 
+import java.io.File;
+
 public class Reference {
     public static final String MOD_ID = "Spoucy";
     public static final String MOD_NAME = "Spoucy";
