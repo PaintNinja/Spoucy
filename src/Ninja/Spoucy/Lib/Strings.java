@@ -11,4 +11,6 @@ public class Strings {
 	public static final String CUSTOMCARPET_NAME = "CustomCarpet";
 	public static final String CUSTOMSAND_NAME = "CustomSand";
 	public static final String CUSTOMPLANT_NAME = "CustomPlant";
+	public static final String CUSTOMWOODENFENCE_NAME = "CustomWoodenFence";
+	public static final String CUSTOMSTONEFENCE_NAME = "CustomStoneFence";
 }

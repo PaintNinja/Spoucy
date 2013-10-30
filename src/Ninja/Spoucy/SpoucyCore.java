@@ -4,6 +4,7 @@ import Ninja.Spoucy.Lib.Reference;
 import Ninja.Spoucy.Lib.Strings;
 import Ninja.Spoucy.API.CustomBlocks;
 import Ninja.Spoucy.API.CustomCarpet;
+import Ninja.Spoucy.API.CustomFences;
 import Ninja.Spoucy.API.CustomGlass;
 import Ninja.Spoucy.API.CustomPlant;
 import Ninja.Spoucy.API.CustomSand;
@@ -38,6 +39,7 @@ public class SpoucyCore {
     public Block CustomCarpet;
     public Block CustomSand;
     public Block CustomGlassBlock;
+    public Block CustomWoodenFence;
     public Item CustomItem;
     
     //Fallback Items and Blocks
@@ -46,6 +48,7 @@ public class SpoucyCore {
     
 	public static CreativeTabs tabSpoucy = new SpoucyTabs(CreativeTabs.getNextID(), "Spoucy");
 	public static CreativeTabs tabSpoucyOther = new SpoucyTabs2(CreativeTabs.getNextID(), "Spoucy Other");
+	public static CreativeTabs tabSpoucyDecoration = new SpoucyTabs2(CreativeTabs.getNextID(), "Spoucy Decoration");
     
     /*
      * Mod startup
@@ -66,12 +69,6 @@ public class SpoucyCore {
 		GameRegistry.registerBlock(CustomStoneBlock, ItemCustomBlock.class, modid + (CustomStoneBlock.getUnlocalizedName().substring(5)));
 		System.out.println("[Spoucy] Defined CustomStoneBlock");
 		
-		//define CustomGlassBlock
-		System.out.println("[Spoucy] Defining CustomGlassBlock...");
-		CustomGlassBlock = new CustomGlass(1004, Material.glass).setUnlocalizedName("spoucyglassblock");
-		GameRegistry.registerBlock(CustomGlassBlock, ItemCustomBlock.class, modid + (CustomGlassBlock.getUnlocalizedName().substring(5)));
-		System.out.println("[Spoucy] Defined CustomGlassBlock");
-		
 		//define CustomPlant
 		System.out.println("[Spoucy] Defining CustomPlant...");
 		CustomPlant = new CustomPlant(1001, Material.plants).setUnlocalizedName("spoucyplant");
@@ -89,6 +86,18 @@ public class SpoucyCore {
 		CustomSand = new CustomSand(1003, Material.sand).setUnlocalizedName("spoucysand");
 		GameRegistry.registerBlock(CustomSand, ItemCustomBlock.class, modid + (CustomSand.getUnlocalizedName().substring(5)));
 		System.out.println("[Spoucy] Defined CustomSand");
+		
+		//define CustomGlassBlock
+		System.out.println("[Spoucy] Defining CustomGlassBlock...");
+		CustomGlassBlock = new CustomGlass(1004, Material.glass).setUnlocalizedName("spoucyglassblock");
+		GameRegistry.registerBlock(CustomGlassBlock, ItemCustomBlock.class, modid + (CustomGlassBlock.getUnlocalizedName().substring(5)));
+		System.out.println("[Spoucy] Defined CustomGlassBlock");
+		
+		//define CustomGlassBlock
+		System.out.println("[Spoucy] Defining CustomWoodenFence...");
+		CustomWoodenFence = new CustomFences(1005, Material.wood).setUnlocalizedName("spoucywoodenfence");
+		GameRegistry.registerBlock(CustomWoodenFence, ItemCustomBlock.class, modid + (CustomWoodenFence.getUnlocalizedName().substring(5)));
+		System.out.println("[Spoucy] Defined CustomWoodenFence");
 		
     	//define CustomItem TODO
 /*		System.out.println("[Spoucy] Defining CustomItem...");
@@ -421,6 +430,71 @@ public class SpoucyCore {
 		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 61), Strings.CUSTOMGLASSBLOCK_NAME + "62");
 		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 62), Strings.CUSTOMGLASSBLOCK_NAME + "63");
 		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 63), Strings.CUSTOMGLASSBLOCK_NAME + "64");
+		
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 0), Strings.CUSTOMWOODENFENCE_NAME + "1");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 1), Strings.CUSTOMWOODENFENCE_NAME + "2");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 2), Strings.CUSTOMWOODENFENCE_NAME + "3");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 3), Strings.CUSTOMWOODENFENCE_NAME + "4");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 4), Strings.CUSTOMWOODENFENCE_NAME + "5");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 5), Strings.CUSTOMWOODENFENCE_NAME + "6");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 6), Strings.CUSTOMWOODENFENCE_NAME + "7");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 7), Strings.CUSTOMWOODENFENCE_NAME + "8");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 8), Strings.CUSTOMWOODENFENCE_NAME + "9");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 9), Strings.CUSTOMWOODENFENCE_NAME + "10");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 10), Strings.CUSTOMWOODENFENCE_NAME + "11");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 11), Strings.CUSTOMWOODENFENCE_NAME + "12");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 12), Strings.CUSTOMWOODENFENCE_NAME + "13");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 13), Strings.CUSTOMWOODENFENCE_NAME + "14");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 14), Strings.CUSTOMWOODENFENCE_NAME + "15");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 15), Strings.CUSTOMWOODENFENCE_NAME + "16");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 16), Strings.CUSTOMWOODENFENCE_NAME + "17");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 17), Strings.CUSTOMWOODENFENCE_NAME + "18");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 18), Strings.CUSTOMWOODENFENCE_NAME + "19");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 19), Strings.CUSTOMWOODENFENCE_NAME + "20");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 20), Strings.CUSTOMWOODENFENCE_NAME + "21");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 21), Strings.CUSTOMWOODENFENCE_NAME + "22");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 22), Strings.CUSTOMWOODENFENCE_NAME + "23");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 23), Strings.CUSTOMWOODENFENCE_NAME + "24");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 24), Strings.CUSTOMWOODENFENCE_NAME + "25");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 25), Strings.CUSTOMWOODENFENCE_NAME + "26");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 26), Strings.CUSTOMWOODENFENCE_NAME + "27");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 27), Strings.CUSTOMWOODENFENCE_NAME + "28");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 28), Strings.CUSTOMWOODENFENCE_NAME + "29");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 29), Strings.CUSTOMWOODENFENCE_NAME + "30");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 30), Strings.CUSTOMWOODENFENCE_NAME + "31");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 31), Strings.CUSTOMWOODENFENCE_NAME + "32");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 32), Strings.CUSTOMWOODENFENCE_NAME + "33");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 33), Strings.CUSTOMWOODENFENCE_NAME + "34");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 34), Strings.CUSTOMWOODENFENCE_NAME + "35");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 35), Strings.CUSTOMWOODENFENCE_NAME + "36");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 36), Strings.CUSTOMWOODENFENCE_NAME + "37");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 37), Strings.CUSTOMWOODENFENCE_NAME + "38");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 38), Strings.CUSTOMWOODENFENCE_NAME + "39");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 39), Strings.CUSTOMWOODENFENCE_NAME + "40");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 40), Strings.CUSTOMWOODENFENCE_NAME + "41");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 41), Strings.CUSTOMWOODENFENCE_NAME + "42");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 42), Strings.CUSTOMWOODENFENCE_NAME + "43");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 43), Strings.CUSTOMWOODENFENCE_NAME + "44");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 44), Strings.CUSTOMWOODENFENCE_NAME + "45");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 45), Strings.CUSTOMWOODENFENCE_NAME + "46");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 46), Strings.CUSTOMWOODENFENCE_NAME + "47");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 47), Strings.CUSTOMWOODENFENCE_NAME + "48");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 48), Strings.CUSTOMWOODENFENCE_NAME + "49");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 49), Strings.CUSTOMWOODENFENCE_NAME + "50");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 50), Strings.CUSTOMWOODENFENCE_NAME + "51");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 51), Strings.CUSTOMWOODENFENCE_NAME + "52");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 52), Strings.CUSTOMWOODENFENCE_NAME + "53");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 53), Strings.CUSTOMWOODENFENCE_NAME + "54");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 54), Strings.CUSTOMWOODENFENCE_NAME + "55");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 55), Strings.CUSTOMWOODENFENCE_NAME + "56");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 56), Strings.CUSTOMWOODENFENCE_NAME + "57");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 57), Strings.CUSTOMWOODENFENCE_NAME + "58");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 58), Strings.CUSTOMWOODENFENCE_NAME + "59");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 59), Strings.CUSTOMWOODENFENCE_NAME + "60");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 60), Strings.CUSTOMWOODENFENCE_NAME + "61");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 61), Strings.CUSTOMWOODENFENCE_NAME + "62");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 62), Strings.CUSTOMWOODENFENCE_NAME + "63");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 63), Strings.CUSTOMWOODENFENCE_NAME + "64");
 		
 		/* TODO
 		LanguageRegistry.addName(new ItemStack(CustomItem, 1, 0), "CustomItem1");
