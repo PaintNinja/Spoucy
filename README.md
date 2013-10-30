@@ -1,6 +1,9 @@
 ![Spoucy](https://dl.dropboxusercontent.com/u/88343325/Banner/SpoucyLogoFull.png)
 ======
 
+# Spoucy development has been unfortunately abandoned due to the lack of usefulness. All planned features of Spoucy are already possible with MCPatcher's CTM and CIT. Feel free to use this however you like, as the license is now MIT.
+
+
 Spoucy is a Minecraft mod made by Paint_Ninja and some voluntary contributors. It allows the server to give the client custom textures for new blocks and textures without touching existing ones. It is fully compatible with other Forge mods and is inspired by Spoutcraft.
 
 ## TODO
