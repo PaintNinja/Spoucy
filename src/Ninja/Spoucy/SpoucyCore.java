@@ -40,15 +40,17 @@ public class SpoucyCore {
     public Block CustomSand;
     public Block CustomGlassBlock;
     public Block CustomWoodenFence;
+    public Block CustomStoneFence;
     public Item CustomItem;
+    public Item CustomApple;
     
     //Fallback Items and Blocks
-    public static Item CustomStaticItem; //Used for the tab icon
+    public static Item SpoucyLogo; //Used for the tab icon - currently broken
     public static Item CustomStaticBlock; //Used if CustomStoneBlock fails - currently unused
     
 	public static CreativeTabs tabSpoucy = new SpoucyTabs(CreativeTabs.getNextID(), "Spoucy");
 	public static CreativeTabs tabSpoucyOther = new SpoucyTabs2(CreativeTabs.getNextID(), "Spoucy Other");
-	public static CreativeTabs tabSpoucyDecoration = new SpoucyTabs2(CreativeTabs.getNextID(), "Spoucy Decoration");
+	public static CreativeTabs tabSpoucyDecoration = new SpoucyDecorationTab(CreativeTabs.getNextID(), "Spoucy Decoration");
     
     /*
      * Mod startup
@@ -58,10 +60,17 @@ public class SpoucyCore {
     	System.out.println("[Spoucy] Starting...");
 		System.out.println("---------------------");
 		
-    	//define CustomStaticItem
-		System.out.println("[Spoucy] Defining CustomStaticItem...");
-		CustomStaticItem = new SpoucyItems(5000).setUnlocalizedName("CustomStaticItem");
-		System.out.println("[Spoucy] Defined CustomStaticItem");
+    	//define SpoucyLogo
+		System.out.println("[Spoucy] Defining SpoucyLogo...");
+		SpoucyLogo = new SpoucyItems(5000).setUnlocalizedName("SpoucyLogo");
+		GameRegistry.registerItem(SpoucyLogo, "SpoucyLogo", modid);
+		System.out.println("[Spoucy] Defined SpoucyLogo");
+		
+    	//define CustomApple
+		System.out.println("[Spoucy] Defining CustomApple...");
+		CustomApple = new SpoucyItems(5001).setUnlocalizedName("customapple");
+		GameRegistry.registerItem(CustomApple, "CustomApple", modid);
+		System.out.println("[Spoucy] Defined CustomApple");
 		
 		//define CustomStoneBlock
 		System.out.println("[Spoucy] Defining CustomStoneBlock...");
@@ -93,28 +102,29 @@ public class SpoucyCore {
 		GameRegistry.registerBlock(CustomGlassBlock, ItemCustomBlock.class, modid + (CustomGlassBlock.getUnlocalizedName().substring(5)));
 		System.out.println("[Spoucy] Defined CustomGlassBlock");
 		
-		//define CustomGlassBlock
+		//define CustomWoodenFence
 		System.out.println("[Spoucy] Defining CustomWoodenFence...");
 		CustomWoodenFence = new CustomFences(1005, Material.wood).setUnlocalizedName("spoucywoodenfence");
 		GameRegistry.registerBlock(CustomWoodenFence, ItemCustomBlock.class, modid + (CustomWoodenFence.getUnlocalizedName().substring(5)));
 		System.out.println("[Spoucy] Defined CustomWoodenFence");
 		
-    	//define CustomItem TODO
-/*		System.out.println("[Spoucy] Defining CustomItem...");
-		CustomItem = new SpoucyItems(5001).setUnlocalizedName("CustomItem");
-		System.out.println("[Spoucy] Defined CustomItem");
-*/	
+		//define CustomStoneFence
+		System.out.println("[Spoucy] Defining CustomStoneFence...");
+		CustomStoneFence = new CustomFences(1006, Material.rock).setUnlocalizedName("spoucystonefence");
+		GameRegistry.registerBlock(CustomStoneFence, ItemCustomBlock.class, modid + (CustomStoneFence.getUnlocalizedName().substring(5)));
+		System.out.println("[Spoucy] Defined CustomStoneFence");
+		
 		//names
 		System.out.println("[Spoucy] Defining default names...");
-		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 0), Strings.CUSTOMSTONEBLOCK_NAME + "1");
-		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 1), Strings.CUSTOMSTONEBLOCK_NAME + "2");
-		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 2), Strings.CUSTOMSTONEBLOCK_NAME + "3");
-		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 3), Strings.CUSTOMSTONEBLOCK_NAME + "4");
-		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 4), Strings.CUSTOMSTONEBLOCK_NAME + "5");
-		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 5), Strings.CUSTOMSTONEBLOCK_NAME + "6");
-		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 6), Strings.CUSTOMSTONEBLOCK_NAME + "7");
-		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 7), Strings.CUSTOMSTONEBLOCK_NAME + "8");
-		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 8), Strings.CUSTOMSTONEBLOCK_NAME + "9");
+		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 0), Strings.CUSTOMSTONEBLOCK_NAME + "01");
+		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 1), Strings.CUSTOMSTONEBLOCK_NAME + "02");
+		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 2), Strings.CUSTOMSTONEBLOCK_NAME + "03");
+		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 3), Strings.CUSTOMSTONEBLOCK_NAME + "04");
+		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 4), Strings.CUSTOMSTONEBLOCK_NAME + "05");
+		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 5), Strings.CUSTOMSTONEBLOCK_NAME + "06");
+		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 6), Strings.CUSTOMSTONEBLOCK_NAME + "07");
+		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 7), Strings.CUSTOMSTONEBLOCK_NAME + "08");
+		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 8), Strings.CUSTOMSTONEBLOCK_NAME + "09");
 		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 9), Strings.CUSTOMSTONEBLOCK_NAME + "10");
 		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 10), Strings.CUSTOMSTONEBLOCK_NAME + "11");
 		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 11), Strings.CUSTOMSTONEBLOCK_NAME + "12");
@@ -171,15 +181,15 @@ public class SpoucyCore {
 		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 62), Strings.CUSTOMSTONEBLOCK_NAME + "63");
 		LanguageRegistry.addName(new ItemStack(CustomStoneBlock, 1, 63), Strings.CUSTOMSTONEBLOCK_NAME + "64");
 		
-		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 0), Strings.CUSTOMPLANT_NAME + "1");
-		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 1), Strings.CUSTOMPLANT_NAME + "2");
-		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 2), Strings.CUSTOMPLANT_NAME + "3");
-		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 3), Strings.CUSTOMPLANT_NAME + "4");
-		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 4), Strings.CUSTOMPLANT_NAME + "5");
-		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 5), Strings.CUSTOMPLANT_NAME + "6");
-		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 6), Strings.CUSTOMPLANT_NAME + "7");
-		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 7), Strings.CUSTOMPLANT_NAME + "8");
-		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 8), Strings.CUSTOMPLANT_NAME + "9");
+		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 0), Strings.CUSTOMPLANT_NAME + "01");
+		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 1), Strings.CUSTOMPLANT_NAME + "02");
+		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 2), Strings.CUSTOMPLANT_NAME + "03");
+		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 3), Strings.CUSTOMPLANT_NAME + "04");
+		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 4), Strings.CUSTOMPLANT_NAME + "05");
+		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 5), Strings.CUSTOMPLANT_NAME + "06");
+		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 6), Strings.CUSTOMPLANT_NAME + "07");
+		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 7), Strings.CUSTOMPLANT_NAME + "08");
+		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 8), Strings.CUSTOMPLANT_NAME + "09");
 		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 9), Strings.CUSTOMPLANT_NAME + "10");
 		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 10), Strings.CUSTOMPLANT_NAME + "11");
 		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 11), Strings.CUSTOMPLANT_NAME + "12");
@@ -236,15 +246,15 @@ public class SpoucyCore {
 		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 62), Strings.CUSTOMPLANT_NAME + "63");
 		LanguageRegistry.addName(new ItemStack(CustomPlant, 1, 63), Strings.CUSTOMPLANT_NAME + "64");
 		
-		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 0), Strings.CUSTOMCARPET_NAME + "1");
-		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 1), Strings.CUSTOMCARPET_NAME + "2");
-		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 2), Strings.CUSTOMCARPET_NAME + "3");
-		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 3), Strings.CUSTOMCARPET_NAME + "4");
-		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 4), Strings.CUSTOMCARPET_NAME + "5");
-		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 5), Strings.CUSTOMCARPET_NAME + "6");
-		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 6), Strings.CUSTOMCARPET_NAME + "7");
-		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 7), Strings.CUSTOMCARPET_NAME + "8");
-		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 8), Strings.CUSTOMCARPET_NAME + "9");
+		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 0), Strings.CUSTOMCARPET_NAME + "01");
+		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 1), Strings.CUSTOMCARPET_NAME + "02");
+		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 2), Strings.CUSTOMCARPET_NAME + "03");
+		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 3), Strings.CUSTOMCARPET_NAME + "04");
+		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 4), Strings.CUSTOMCARPET_NAME + "05");
+		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 5), Strings.CUSTOMCARPET_NAME + "06");
+		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 6), Strings.CUSTOMCARPET_NAME + "07");
+		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 7), Strings.CUSTOMCARPET_NAME + "08");
+		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 8), Strings.CUSTOMCARPET_NAME + "09");
 		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 9), Strings.CUSTOMCARPET_NAME + "10");
 		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 10), Strings.CUSTOMCARPET_NAME + "11");
 		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 11), Strings.CUSTOMCARPET_NAME + "12");
@@ -301,15 +311,15 @@ public class SpoucyCore {
 		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 62), Strings.CUSTOMCARPET_NAME + "63");
 		LanguageRegistry.addName(new ItemStack(CustomCarpet, 1, 63), Strings.CUSTOMCARPET_NAME + "64");
 		
-		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 0), Strings.CUSTOMSAND_NAME + "1");
-		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 1), Strings.CUSTOMSAND_NAME + "2");
-		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 2), Strings.CUSTOMSAND_NAME + "3");
-		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 3), Strings.CUSTOMSAND_NAME + "4");
-		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 4), Strings.CUSTOMSAND_NAME + "5");
-		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 5), Strings.CUSTOMSAND_NAME + "6");
-		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 6), Strings.CUSTOMSAND_NAME + "7");
-		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 7), Strings.CUSTOMSAND_NAME + "8");
-		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 8), Strings.CUSTOMSAND_NAME + "9");
+		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 0), Strings.CUSTOMSAND_NAME + "01");
+		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 1), Strings.CUSTOMSAND_NAME + "02");
+		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 2), Strings.CUSTOMSAND_NAME + "03");
+		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 3), Strings.CUSTOMSAND_NAME + "04");
+		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 4), Strings.CUSTOMSAND_NAME + "05");
+		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 5), Strings.CUSTOMSAND_NAME + "06");
+		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 6), Strings.CUSTOMSAND_NAME + "07");
+		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 7), Strings.CUSTOMSAND_NAME + "08");
+		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 8), Strings.CUSTOMSAND_NAME + "09");
 		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 9), Strings.CUSTOMSAND_NAME + "10");
 		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 10), Strings.CUSTOMSAND_NAME + "11");
 		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 11), Strings.CUSTOMSAND_NAME + "12");
@@ -366,15 +376,15 @@ public class SpoucyCore {
 		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 62), Strings.CUSTOMSAND_NAME + "63");
 		LanguageRegistry.addName(new ItemStack(CustomSand, 1, 63), Strings.CUSTOMSAND_NAME + "64");
 		
-		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 0), Strings.CUSTOMGLASSBLOCK_NAME + "1");
-		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 1), Strings.CUSTOMGLASSBLOCK_NAME + "2");
-		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 2), Strings.CUSTOMGLASSBLOCK_NAME + "3");
-		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 3), Strings.CUSTOMGLASSBLOCK_NAME + "4");
-		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 4), Strings.CUSTOMGLASSBLOCK_NAME + "5");
-		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 5), Strings.CUSTOMGLASSBLOCK_NAME + "6");
-		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 6), Strings.CUSTOMGLASSBLOCK_NAME + "7");
-		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 7), Strings.CUSTOMGLASSBLOCK_NAME + "8");
-		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 8), Strings.CUSTOMGLASSBLOCK_NAME + "9");
+		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 0), Strings.CUSTOMGLASSBLOCK_NAME + "01");
+		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 1), Strings.CUSTOMGLASSBLOCK_NAME + "02");
+		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 2), Strings.CUSTOMGLASSBLOCK_NAME + "03");
+		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 3), Strings.CUSTOMGLASSBLOCK_NAME + "04");
+		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 4), Strings.CUSTOMGLASSBLOCK_NAME + "05");
+		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 5), Strings.CUSTOMGLASSBLOCK_NAME + "06");
+		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 6), Strings.CUSTOMGLASSBLOCK_NAME + "07");
+		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 7), Strings.CUSTOMGLASSBLOCK_NAME + "08");
+		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 8), Strings.CUSTOMGLASSBLOCK_NAME + "09");
 		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 9), Strings.CUSTOMGLASSBLOCK_NAME + "10");
 		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 10), Strings.CUSTOMGLASSBLOCK_NAME + "11");
 		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 11), Strings.CUSTOMGLASSBLOCK_NAME + "12");
@@ -431,15 +441,15 @@ public class SpoucyCore {
 		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 62), Strings.CUSTOMGLASSBLOCK_NAME + "63");
 		LanguageRegistry.addName(new ItemStack(CustomGlassBlock, 1, 63), Strings.CUSTOMGLASSBLOCK_NAME + "64");
 		
-		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 0), Strings.CUSTOMWOODENFENCE_NAME + "1");
-		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 1), Strings.CUSTOMWOODENFENCE_NAME + "2");
-		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 2), Strings.CUSTOMWOODENFENCE_NAME + "3");
-		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 3), Strings.CUSTOMWOODENFENCE_NAME + "4");
-		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 4), Strings.CUSTOMWOODENFENCE_NAME + "5");
-		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 5), Strings.CUSTOMWOODENFENCE_NAME + "6");
-		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 6), Strings.CUSTOMWOODENFENCE_NAME + "7");
-		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 7), Strings.CUSTOMWOODENFENCE_NAME + "8");
-		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 8), Strings.CUSTOMWOODENFENCE_NAME + "9");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 0), Strings.CUSTOMWOODENFENCE_NAME + "01");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 1), Strings.CUSTOMWOODENFENCE_NAME + "02");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 2), Strings.CUSTOMWOODENFENCE_NAME + "03");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 3), Strings.CUSTOMWOODENFENCE_NAME + "04");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 4), Strings.CUSTOMWOODENFENCE_NAME + "05");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 5), Strings.CUSTOMWOODENFENCE_NAME + "06");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 6), Strings.CUSTOMWOODENFENCE_NAME + "07");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 7), Strings.CUSTOMWOODENFENCE_NAME + "08");
+		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 8), Strings.CUSTOMWOODENFENCE_NAME + "09");
 		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 9), Strings.CUSTOMWOODENFENCE_NAME + "10");
 		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 10), Strings.CUSTOMWOODENFENCE_NAME + "11");
 		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 11), Strings.CUSTOMWOODENFENCE_NAME + "12");
@@ -496,7 +506,71 @@ public class SpoucyCore {
 		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 62), Strings.CUSTOMWOODENFENCE_NAME + "63");
 		LanguageRegistry.addName(new ItemStack(CustomWoodenFence, 1, 63), Strings.CUSTOMWOODENFENCE_NAME + "64");
 		
-		/* TODO
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 0), Strings.CUSTOMSTONEFENCE_NAME + "01");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 1), Strings.CUSTOMSTONEFENCE_NAME + "02");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 2), Strings.CUSTOMSTONEFENCE_NAME + "03");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 3), Strings.CUSTOMSTONEFENCE_NAME + "04");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 4), Strings.CUSTOMSTONEFENCE_NAME + "05");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 5), Strings.CUSTOMSTONEFENCE_NAME + "06");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 6), Strings.CUSTOMSTONEFENCE_NAME + "07");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 7), Strings.CUSTOMSTONEFENCE_NAME + "08");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 8), Strings.CUSTOMSTONEFENCE_NAME + "09");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 9), Strings.CUSTOMSTONEFENCE_NAME + "10");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 10), Strings.CUSTOMSTONEFENCE_NAME + "11");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 11), Strings.CUSTOMSTONEFENCE_NAME + "12");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 12), Strings.CUSTOMSTONEFENCE_NAME + "13");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 13), Strings.CUSTOMSTONEFENCE_NAME + "14");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 14), Strings.CUSTOMSTONEFENCE_NAME + "15");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 15), Strings.CUSTOMSTONEFENCE_NAME + "16");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 16), Strings.CUSTOMSTONEFENCE_NAME + "17");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 17), Strings.CUSTOMSTONEFENCE_NAME + "18");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 18), Strings.CUSTOMSTONEFENCE_NAME + "19");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 19), Strings.CUSTOMSTONEFENCE_NAME + "20");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 20), Strings.CUSTOMSTONEFENCE_NAME + "21");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 21), Strings.CUSTOMSTONEFENCE_NAME + "22");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 22), Strings.CUSTOMSTONEFENCE_NAME + "23");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 23), Strings.CUSTOMSTONEFENCE_NAME + "24");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 24), Strings.CUSTOMSTONEFENCE_NAME + "25");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 25), Strings.CUSTOMSTONEFENCE_NAME + "26");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 26), Strings.CUSTOMSTONEFENCE_NAME + "27");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 27), Strings.CUSTOMSTONEFENCE_NAME + "28");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 28), Strings.CUSTOMSTONEFENCE_NAME + "29");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 29), Strings.CUSTOMSTONEFENCE_NAME + "30");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 30), Strings.CUSTOMSTONEFENCE_NAME + "31");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 31), Strings.CUSTOMSTONEFENCE_NAME + "32");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 32), Strings.CUSTOMSTONEFENCE_NAME + "33");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 33), Strings.CUSTOMSTONEFENCE_NAME + "34");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 34), Strings.CUSTOMSTONEFENCE_NAME + "35");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 35), Strings.CUSTOMSTONEFENCE_NAME + "36");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 36), Strings.CUSTOMSTONEFENCE_NAME + "37");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 37), Strings.CUSTOMSTONEFENCE_NAME + "38");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 38), Strings.CUSTOMSTONEFENCE_NAME + "39");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 39), Strings.CUSTOMSTONEFENCE_NAME + "40");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 40), Strings.CUSTOMSTONEFENCE_NAME + "41");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 41), Strings.CUSTOMSTONEFENCE_NAME + "42");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 42), Strings.CUSTOMSTONEFENCE_NAME + "43");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 43), Strings.CUSTOMSTONEFENCE_NAME + "44");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 44), Strings.CUSTOMSTONEFENCE_NAME + "45");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 45), Strings.CUSTOMSTONEFENCE_NAME + "46");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 46), Strings.CUSTOMSTONEFENCE_NAME + "47");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 47), Strings.CUSTOMSTONEFENCE_NAME + "48");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 48), Strings.CUSTOMSTONEFENCE_NAME + "49");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 49), Strings.CUSTOMSTONEFENCE_NAME + "50");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 50), Strings.CUSTOMSTONEFENCE_NAME + "51");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 51), Strings.CUSTOMSTONEFENCE_NAME + "52");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 52), Strings.CUSTOMSTONEFENCE_NAME + "53");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 53), Strings.CUSTOMSTONEFENCE_NAME + "54");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 54), Strings.CUSTOMSTONEFENCE_NAME + "55");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 55), Strings.CUSTOMSTONEFENCE_NAME + "56");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 56), Strings.CUSTOMSTONEFENCE_NAME + "57");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 57), Strings.CUSTOMSTONEFENCE_NAME + "58");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 58), Strings.CUSTOMSTONEFENCE_NAME + "59");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 59), Strings.CUSTOMSTONEFENCE_NAME + "60");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 60), Strings.CUSTOMSTONEFENCE_NAME + "61");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 61), Strings.CUSTOMSTONEFENCE_NAME + "62");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 62), Strings.CUSTOMSTONEFENCE_NAME + "63");
+		LanguageRegistry.addName(new ItemStack(CustomStoneFence, 1, 63), Strings.CUSTOMSTONEFENCE_NAME + "64");
+
 		LanguageRegistry.addName(new ItemStack(CustomItem, 1, 0), "CustomItem1");
 		LanguageRegistry.addName(new ItemStack(CustomItem, 1, 1), "CustomItem2");
 		LanguageRegistry.addName(new ItemStack(CustomItem, 1, 2), "CustomItem3");
@@ -561,10 +635,12 @@ public class SpoucyCore {
 		LanguageRegistry.addName(new ItemStack(CustomItem, 1, 61), "CustomItem62");
 		LanguageRegistry.addName(new ItemStack(CustomItem, 1, 62), "CustomItem63");
 		LanguageRegistry.addName(new ItemStack(CustomItem, 1, 63), "CustomItem64");
-		*/
 		
-		LanguageRegistry.addName(CustomStaticItem,"Tab icon DO NOT USE");
+		LanguageRegistry.addName(SpoucyLogo,"SpoucyLogo");
 		System.out.println("[Spoucy] Defined default names");
+		
+		System.out.println("[Spoucy] Attempting to hide unused custom blocks...");
+		
     }
 
 }
