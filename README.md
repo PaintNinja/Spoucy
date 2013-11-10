@@ -1,9 +1,7 @@
 ![Spoucy](https://dl.dropboxusercontent.com/u/88343325/Banner/SpoucyLogoFull.png)
 ======
 
-Brother gained access to my account, I'm not actually abandoning this. Shouldn't happen again, sorry. :/
-
-Spoucy is a Minecraft mod made by Paint_Ninja and some voluntary contributors. It allows the server to give the client custom textures for new blocks and textures without touching existing ones. It is fully compatible with other Forge mods and is inspired by Spoutcraft.
+Spoucy is a Minecraft mod made by Paint_Ninja and some voluntary contributors. It allows the server to give the client a whole new game seamlessly whilst the client connects to the server. This allows for virtually infinite possibilities, with the only limit being Minecraft and your imagination.
 
 ## TODO
 - DONE Make a basic Forge mod with one item
